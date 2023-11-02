@@ -15,7 +15,7 @@ export const Map = ({ lat = 1, lon = 1 }) => {
 
   const customIcon = new Icon({
     iconUrl: './img/icon-location.svg',
-    iconSize: [45, 60],
+    iconSize: [30, 40],
   });
 
   return (

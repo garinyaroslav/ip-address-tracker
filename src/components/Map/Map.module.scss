@@ -1,4 +1,11 @@
 .root {
   height: 570px;
   width: 1440px;
+
+  @media (max-width: 1450px) {
+    width: 750px;
+  }
+  @media (max-width: 760px) {
+    width: 100%;
+  }
 }
