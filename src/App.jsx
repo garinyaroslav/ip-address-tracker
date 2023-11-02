@@ -9,7 +9,7 @@ export function App() {
   const [ipData, setIpData] = React.useState({});
 
   const fetchIp = async (ip) => {
-    const res = await fetch(`http://ip-api.com/json/${ip}`);
+    const res = await fetch(`https://ipapi.co/${ip}/json/`);
     const data = await res.json();
     setIpData(data);
   };
@@ -17,7 +17,7 @@ export function App() {
   React.useEffect(() => {
     try {
       (async () => {
-        const res = await fetch('http://ip-api.com/json/');
+        const res = await fetch('https://ipapi.co/json/');
         const data = await res.json();
         setIpData(data);
       })();
@@ -30,14 +30,14 @@ export function App() {
     <div className="wrapper">
       <Header
         fetchIp={fetchIp}
-        query={ipData.query}
+        query={ipData.ip}
         city={ipData.city}
         region={ipData.regionName}
-        country={ipData.country}
+        country={ipData.country_name}
         timezone={ipData.timezone}
-        isp={ipData.isp}
+        isp={ipData.org}
       />
-      <Map lat={ipData.lat} lon={ipData.lon} />
+      <Map lat={ipData.latitude} lon={ipData.longitude} />
     </div>
   );
 }
